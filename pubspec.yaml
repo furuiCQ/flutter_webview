@@ -2,7 +2,7 @@ name: flutter_webview
 description: A new Flutter plugin for webview
 version: 0.0.1
 author: markfrain<marfrain@qq.com>
-homepage:
+homepage: https://github.com/furuiCQ/flutter_webview
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
