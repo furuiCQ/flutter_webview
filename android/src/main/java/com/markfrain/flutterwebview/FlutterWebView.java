@@ -1,10 +1,12 @@
 package com.markfrain.flutterwebview;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -115,6 +117,7 @@ class FlutterWebView implements PlatformView, MethodCallHandler {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     public void onMethodCall(MethodCall call, MethodChannel.Result result) {
         switch (call.method) {
@@ -125,6 +128,10 @@ class FlutterWebView implements PlatformView, MethodCallHandler {
             case "loadData":
                 String html = call.arguments.toString();
                 webView.loadData(html, "text/html", "utf-8");
+                break;
+            case "evalJs":
+                String code = call.arguments.toString();
+                webView.evaluateJavascript(code, null);
                 break;
             default:
                 result.notImplemented();

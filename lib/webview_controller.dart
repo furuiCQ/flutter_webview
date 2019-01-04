@@ -21,6 +21,10 @@ class WebViewController {
     return _channel.invokeMethod('loadData', data);
   }
 
+  Future<void> evalJs(String code) async {
+  assert(code != null);
+  return _channel.invokeMethod('evalJs', code);
+  }
 
   Stream<String> get onLoadStart{
     var url = _LoadStart
