@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.view.View;
+import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -138,7 +139,7 @@ class FlutterWebView implements PlatformView, MethodCallHandler {
                 break;
             case "evalJs":
                 String code = call.arguments.toString();
-                webView.evaluateJavascript(code, null);
+                webView.evaluateJavascript(code, value -> result.success(value));
                 break;
             default:
                 result.notImplemented();
