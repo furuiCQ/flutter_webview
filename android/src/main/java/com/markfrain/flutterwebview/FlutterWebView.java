@@ -139,7 +139,12 @@ class FlutterWebView implements PlatformView, MethodCallHandler {
                 break;
             case "evalJs":
                 String code = call.arguments.toString();
-                webView.evaluateJavascript(code, value -> result.success(value));
+                webView.evaluateJavascript(code,, new ValueCallback<String>() {
+                    @Override
+                    public void onReceiveValue(String value) {
+                        result.success(value);
+                    }
+                });
                 break;
             default:
                 result.notImplemented();
