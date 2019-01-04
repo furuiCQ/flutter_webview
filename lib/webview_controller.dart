@@ -7,7 +7,7 @@ class WebViewController {
   EventChannel _LoadFinsih;
 
   WebViewController.init(int id){
-    _channel = new MethodChannel('flutter_webview_channel_$id');
+    _channel = new MethodChannel('flutter_webview_$id');
     _LoadStart = EventChannel('flutter_webview_loadStart_$id');
     _LoadFinsih = EventChannel('flutter_webview_loadFinish_$id');
   }

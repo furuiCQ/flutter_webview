@@ -41,7 +41,7 @@ class FlutterWebView implements PlatformView, MethodCallHandler {
         this.url = url;
         webView = getWebView(registrar);
 
-        channel = new MethodChannel(registrar.messenger(), "flutter_webview_channel_" + id);
+        channel = new MethodChannel(registrar.messenger(), "flutter_webview_" + id);
         final EventChannel onLoadStartEvenetChannel = new EventChannel(registrar.messenger(), "flutter_webview_loadStart_" + id);
         final EventChannel onLoadFinishEvenetChannel = new EventChannel(registrar.messenger(), "flutter_webview_loadFinish_" + id);
         onLoadStartEvenetChannel.setStreamHandler(new EventChannel.StreamHandler() {
