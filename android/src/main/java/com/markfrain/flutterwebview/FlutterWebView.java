@@ -127,7 +127,7 @@ class FlutterWebView implements PlatformView, MethodCallHandler {
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
-    public void onMethodCall(MethodCall call, MethodChannel.Result result) {
+    public void onMethodCall(MethodCall call,final MethodChannel.Result result) {
         switch (call.method) {
             case "loadUrl":
                 String url = call.arguments.toString();
