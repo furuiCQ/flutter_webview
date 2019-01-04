@@ -78,10 +78,17 @@ class FlutterWebView implements PlatformView, MethodCallHandler {
 
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private WebView getWebView(Registrar registrar) {
         WebView webView = new WebView(registrar.context());
         webView.setWebViewClient(new CustomWebViewClient());
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        webView.getSettings().setSupportMultipleWindows(true);
+        webView.getSettings().setAppCacheEnabled(true);
+        webView.getSettings().setAllowFileAccessFromFileURLs(true);
+        webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         return webView;
     }
 
